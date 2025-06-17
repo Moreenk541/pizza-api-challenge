@@ -1,4 +1,4 @@
-# server/models/restaurant.py
+
 
 from ..extensions import db
 

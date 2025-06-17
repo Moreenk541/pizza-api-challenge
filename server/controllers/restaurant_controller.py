@@ -1,4 +1,4 @@
-# server/controllers/restaurant_controller.py
+
 
 from flask import Blueprint, jsonify
 from ..models.restaurant import Restaurant

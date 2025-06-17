@@ -1,4 +1,4 @@
-# server/models/restaurant_pizza.py
+
 
 from ..extensions import db
 
