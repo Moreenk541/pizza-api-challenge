@@ -1,13 +1,19 @@
-from config import db
+# server/models/restaurant.py
 
-class Restaurant(db.Model):  # Don't forget to inherit from db.Model
-    __tablename__ = 'restaurants'
+from ..extensions import db
+
+class Restaurant(db.Model):
+    __tablename__ = "restaurants"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     address = db.Column(db.String, nullable=False)
 
-    def __repr__(self):
-        return f"<Restaurant {self.name}>"
-    
-    restaurant_pizzas = db.relationship('RestaurantPizza', backref='restaurant', cascade='all, delete')
+    restaurant_pizzas = db.relationship("RestaurantPizza", backref="restaurant", cascade="all, delete-orphan")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "address": self.address
+        }
