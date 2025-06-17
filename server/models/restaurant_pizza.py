@@ -1,3 +1,12 @@
-from . import db
+from config import db
 
-cl
+class RestaurantPizza(db.Model):
+    __tablename__ ='RestaurantPizza'
+
+    id = db.column(db.Integer,primary_Key=True)
+    price = db.column(db.Integer,range(1-30))
+
+  
+
+
+

@@ -1,10 +1,11 @@
-from . import db
+from config import db
 
-class pizza:
-    __tablename__= 'pizza'
+class Pizza(db.Model):
+    __tablename__= 'Pizza'
 
-    id =db.Column(db.Integer,primaryKey=True)
+    id =db.Column(db.Integer,primary_Key=True)
     name=db.Column(db.String,nullable=False)
-    ingredients=db.Column(db.string,nullable=False)
+    ingredients=db.Column(db.String,nullable=False)
     
-    pass
+
+    restaurant_pizzas = db.relationship('RestaurantPizza', backref='pizza', cascade='all, delete')
